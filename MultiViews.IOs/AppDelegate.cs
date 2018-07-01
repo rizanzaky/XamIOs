@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Blank.ViewControllers;
+using Foundation;
 using UIKit;
 
 namespace Blank
@@ -20,7 +21,7 @@ namespace Blank
         {
             // create a new window instance based on the screen size
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
-            Window.RootViewController = new UIViewController();
+            Window.RootViewController = new HomeViewController();
 
             // make the window visible
             Window.MakeKeyAndVisible();
