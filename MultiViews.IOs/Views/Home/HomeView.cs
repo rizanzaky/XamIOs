@@ -8,13 +8,13 @@ namespace Blank.Views.Home
         private UIStackView _topHorizontalStack;
         private UILabel _myHomeLabel;
         private readonly UIImage _settingsIcon;
-        private UIButton _settingsButton;
+        public UIButton SettingsButton { get; private set; }
         private UITextView _myHomeDescriptionText;
         public HomeTableView HomeTableView { get; private set; }
 
         public HomeView()
         {
-            _settingsIcon = UIImage.FromBundle("HomeSettingsIcon.png");
+            _settingsIcon = UIImage.FromBundle("SettingsWhiteIcon.png"); // UIImage.FromBundle("HomeSettingsIcon.png");
             InitElements();
         }
 
@@ -31,30 +31,30 @@ namespace Blank.Views.Home
         {
             _topHorizontalStack = new UIStackView { Axis = UILayoutConstraintAxis.Horizontal, TranslatesAutoresizingMaskIntoConstraints = false };
             _myHomeLabel = new UILabel { AdjustsFontForContentSizeCategory = true, TranslatesAutoresizingMaskIntoConstraints = false };
-            _settingsButton = new UIButton(UIButtonType.System) { TranslatesAutoresizingMaskIntoConstraints = false };
+            SettingsButton = new UIButton(UIButtonType.System) { TranslatesAutoresizingMaskIntoConstraints = false };
             _myHomeDescriptionText = new UITextView { ScrollEnabled = false, AdjustsFontForContentSizeCategory = true, TranslatesAutoresizingMaskIntoConstraints = false };
             HomeTableView = new HomeTableView { TranslatesAutoresizingMaskIntoConstraints = false };
         }
 
         private void SetStyles()
         {
-            BackgroundColor = UIColor.White; // TODO: theme
+            BackgroundColor = UIColor.Black; // UIColor.White; // TODO: theme
 
             _myHomeLabel.Font = UIFont.PreferredTitle1;
-            _myHomeLabel.TextColor = UIColor.Black; // TODO: theme
+            _myHomeLabel.TextColor = UIColor.White; // UIColor.Black; // TODO: theme
 
-            _settingsButton.SetBackgroundImage(_settingsIcon, UIControlState.Normal);
+            SettingsButton.SetBackgroundImage(_settingsIcon, UIControlState.Normal);
 
             _myHomeDescriptionText.Font = UIFont.PreferredSubheadline;
-            _myHomeDescriptionText.BackgroundColor = UIColor.LightGray; // TODO: theme
-            _myHomeDescriptionText.TextColor = UIColor.DarkGray; // TODO: theme
+            _myHomeDescriptionText.BackgroundColor = UIColor.DarkGray; // UIColor.LightGray; // TODO: theme
+            _myHomeDescriptionText.TextColor = UIColor.LightGray; // UIColor.DarkGray; // TODO: theme
         }
 
         private void SetHierarchy()
         {
             Add(_topHorizontalStack);
             _topHorizontalStack.AddArrangedSubview(_myHomeLabel);
-            _topHorizontalStack.AddArrangedSubview(_settingsButton);
+            _topHorizontalStack.AddArrangedSubview(SettingsButton);
             Add(_myHomeDescriptionText);
             Add(HomeTableView);
         }
@@ -67,8 +67,8 @@ namespace Blank.Views.Home
             _topHorizontalStack.Alignment = UIStackViewAlignment.Center;
             _topHorizontalStack.Distribution = UIStackViewDistribution.Fill;
             
-            _settingsButton.HeightAnchor.ConstraintEqualTo(32f).Active = true;
-            _settingsButton.WidthAnchor.ConstraintEqualTo(32f).Active = true;
+            SettingsButton.HeightAnchor.ConstraintEqualTo(32f).Active = true;
+            SettingsButton.WidthAnchor.ConstraintEqualTo(32f).Active = true;
 
             _myHomeDescriptionText.TopAnchor.ConstraintEqualTo(_topHorizontalStack.BottomAnchor, 15f).Active = true;
             _myHomeDescriptionText.LeftAnchor.ConstraintEqualTo(LayoutMarginsGuide.LeftAnchor, 10f).Active = true;

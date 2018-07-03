@@ -7,6 +7,7 @@ namespace Blank.Views.Home.HomeTable
         public HomeTableView()
         {
             RegisterClassForCellReuse(typeof(HomeTableCell), HomeTableCell.CellId);
+            BackgroundColor = UIColor.Black; // UIColor.White; // TODO: theme
         }
     }
 }

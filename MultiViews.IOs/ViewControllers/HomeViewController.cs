@@ -1,4 +1,5 @@
-﻿using Blank.Views.Home;
+﻿using System;
+using Blank.Views.Home;
 using Blank.Views.Home.HomeTable;
 using UIKit;
 
@@ -23,6 +24,15 @@ namespace Blank.ViewControllers
         public override void ViewDidLoad()
         {
             _homeView.HomeTableView.Source = _homeTableSource;
+            _homeView.SettingsButton.TouchUpInside += OnHomeSettingsTapped;
+        }
+
+        private void OnHomeSettingsTapped(object sender, EventArgs e)
+        {
+            // navigate to settings page
+            var settingsController = new SettingsViewController();
+            settingsController.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem { Title = "Back" }, true);
+            PresentViewController(settingsController, true, null);
         }
     }
 }

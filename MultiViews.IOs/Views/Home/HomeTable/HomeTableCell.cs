@@ -37,12 +37,11 @@ namespace Blank.Views.Home.HomeTable
 
         private void SetStyles()
         {
-            BackgroundColor = UIColor.White; // TODO: theme
+            BackgroundColor = UIColor.Black; // UIColor.White; // TODO: theme
 
             _titleLabel.Font = UIFont.PreferredHeadline;
-            _titleLabel.TextColor = UIColor.Black; // TODO: theme
+            _titleLabel.TextColor = UIColor.White; // UIColor.Black; // TODO: theme
             
-
             _subTextLabel.Font = UIFont.PreferredSubheadline;
             _subTextLabel.TextColor = UIColor.LightGray; // TODO: theme
         }
