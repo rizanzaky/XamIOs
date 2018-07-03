@@ -19,6 +19,11 @@ namespace Blank.Views.Home.HomeTable
             InitElements();
         }
 
+        internal void UpdateElements()
+        {
+            SetStyles();
+        }
+
         private void InitElements()
         {
             CreateElements();

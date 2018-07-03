@@ -1,4 +1,5 @@
 ﻿using System;
+using Blank.Utility;
 using Blank.Views.Settings;
 using UIKit;
 
@@ -27,6 +28,9 @@ namespace Blank.ViewControllers
         private void OnThemeChanged(object sender, ThemeEventArgs args)
         {
             Console.WriteLine($"Value: {args.ThemeType}");
+            Theme.UpdateTheme(args.ThemeType);
+            _settingsView.UpdateElements();
+            //Theme.Update(ref Theme.PrimaryBackgroundColor);
         }
 
         private void OnBackButtonTouched(object sender, EventArgs e)

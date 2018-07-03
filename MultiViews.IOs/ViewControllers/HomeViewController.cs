@@ -21,6 +21,11 @@ namespace Blank.ViewControllers
             View = _homeView;
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            _homeView.UpdateElements();
+        }
+
         public override void ViewDidLoad()
         {
             _homeView.HomeTableView.Source = _homeTableSource;

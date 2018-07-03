@@ -1,5 +1,7 @@
-﻿using Blank.Utility;
+﻿using System;
+using Blank.Utility;
 using Blank.Views.Home.HomeTable;
+using CallKit;
 using UIKit;
 
 namespace Blank.Views.Home
@@ -17,6 +19,13 @@ namespace Blank.Views.Home
         {
             _settingsIcon = UIImage.FromBundle("SettingsWhiteIcon.png"); // UIImage.FromBundle("HomeSettingsIcon.png");
             InitElements();
+        }
+
+        internal void UpdateElements()
+        {
+            SetStyles();
+            HomeTableView.ReloadData();
+            HomeTableView.UpdateElements();
         }
 
         private void InitElements()
@@ -44,7 +53,7 @@ namespace Blank.Views.Home
             _myHomeLabel.Font = UIFont.PreferredTitle1;
             _myHomeLabel.TextColor = Theme.PrimaryTextColor; // UIColor.White; // UIColor.Black; // TODO: theme
 
-            SettingsButton.SetBackgroundImage(_settingsIcon, UIControlState.Normal);
+            SettingsButton.SetBackgroundImage(Theme.SettingsIcon, UIControlState.Normal); // TODO: theme
 
             _myHomeDescriptionText.Font = UIFont.PreferredSubheadline;
             _myHomeDescriptionText.BackgroundColor = Theme.SecondaryBackgroundColor; // UIColor.DarkGray; // UIColor.LightGray; // TODO: theme

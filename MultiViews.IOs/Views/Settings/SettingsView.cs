@@ -1,4 +1,5 @@
 ﻿using System;
+using Blank.Utility;
 using CoreGraphics;
 using UIKit;
 
@@ -29,6 +30,11 @@ namespace Blank.Views.Settings
             BindData(); // TODO: MVVM
         }
 
+        internal void UpdateElements()
+        {
+            SetStyles();
+        }
+
         private void CreateElements()
         {
             BackButton = new UIButton(UIButtonType.System) { TranslatesAutoresizingMaskIntoConstraints = false };
@@ -47,20 +53,22 @@ namespace Blank.Views.Settings
 
         private void SetStyles()
         {
-            BackgroundColor = UIColor.White; // TODO: theme
+            BackgroundColor = Theme.PrimaryBackgroundColor; // UIColor.White; // TODO: theme
 
             BackButton.Layer.BorderWidth = 1f;
             BackButton.Layer.BorderColor = UIColor.Blue.CGColor; // TODO: theme
             BackButton.ContentEdgeInsets = new UIEdgeInsets(10f, 30f, 10f, 30f);
 
             _titleLabel.Font = UIFont.PreferredTitle1;
-            _titleLabel.TextColor = UIColor.Black; // TODO: theme
+            _titleLabel.TextColor = Theme.PrimaryTextColor; // UIColor.Black; // TODO: theme
 
             _themesLabel.Font = UIFont.PreferredTitle3;
-            _themesLabel.TextColor = UIColor.Black; // TODO: theme
+            _themesLabel.TextColor = Theme.PrimaryTextColor; // UIColor.Black; // TODO: theme
 
             _lightTheme.Layer.BorderWidth = 1f;
             _darkTheme.Layer.BorderWidth = 1f;
+            _lightTheme.Layer.BorderColor = Theme.PrimaryTextColor.CGColor; // TODO: theme
+            _darkTheme.Layer.BorderColor = Theme.PrimaryTextColor.CGColor; // TODO: theme
         }
 
         private void SetHierarchy()

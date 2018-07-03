@@ -8,7 +8,9 @@ namespace Blank.Views.Home.HomeTable
     {
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            return tableView.DequeueReusableCell("HomeTableCell");
+            var cell = (HomeTableCell)tableView.DequeueReusableCell("HomeTableCell");
+            cell.UpdateElements();
+            return cell;
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)
