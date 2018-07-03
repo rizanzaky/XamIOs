@@ -43,7 +43,7 @@ namespace Blank.Views.Home.HomeTable
             _titleLabel.TextColor = UIColor.White; // UIColor.Black; // TODO: theme
             
             _subTextLabel.Font = UIFont.PreferredSubheadline;
-            _subTextLabel.TextColor = UIColor.LightGray; // TODO: theme
+            _subTextLabel.TextColor = UIColor.LightGray; // UIColor.DarkGray;  // TODO: theme
         }
 
         private void SetHierarchy()
@@ -59,10 +59,6 @@ namespace Blank.Views.Home.HomeTable
         private void SetConstraints()
         {
             _textStack.Spacing = 5f;
-            //_textStack.TopAnchor.ConstraintEqualTo(TopAnchor, 5f).Active = true;
-            //_textStack.LeftAnchor.ConstraintEqualTo(LeftAnchor).Active = true;
-            //_textStack.RightAnchor.ConstraintEqualTo(RightAnchor).Active = true;
-            //_textStack.BottomAnchor.ConstraintEqualTo(BottomAnchor, -5f).Active = true;
 
             _rowStack.Alignment = UIStackViewAlignment.Top;
             _rowStack.Distribution = UIStackViewDistribution.Fill;
