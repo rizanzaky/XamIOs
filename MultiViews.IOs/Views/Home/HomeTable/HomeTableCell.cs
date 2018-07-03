@@ -1,4 +1,5 @@
 ﻿using System;
+using Blank.Utility;
 using UIKit;
 
 namespace Blank.Views.Home.HomeTable
@@ -37,13 +38,13 @@ namespace Blank.Views.Home.HomeTable
 
         private void SetStyles()
         {
-            BackgroundColor = UIColor.Black; // UIColor.White; // TODO: theme
+            BackgroundColor = Theme.PrimaryBackgroundColor; // UIColor.Black; // UIColor.White; // TODO: theme
 
             _titleLabel.Font = UIFont.PreferredHeadline;
-            _titleLabel.TextColor = UIColor.White; // UIColor.Black; // TODO: theme
-            
+            _titleLabel.TextColor = Theme.PrimaryTextColor; // UIColor.White; // UIColor.Black; // TODO: theme
+
             _subTextLabel.Font = UIFont.PreferredSubheadline;
-            _subTextLabel.TextColor = UIColor.LightGray; // UIColor.DarkGray;  // TODO: theme
+            _subTextLabel.TextColor = Theme.SecondaryTextColor; // UIColor.LightGray; // UIColor.DarkGray;  // TODO: theme
         }
 
         private void SetHierarchy()

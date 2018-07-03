@@ -1,4 +1,5 @@
-﻿using Blank.Views.Home.HomeTable;
+﻿using Blank.Utility;
+using Blank.Views.Home.HomeTable;
 using UIKit;
 
 namespace Blank.Views.Home
@@ -38,16 +39,16 @@ namespace Blank.Views.Home
 
         private void SetStyles()
         {
-            BackgroundColor = UIColor.Black; // UIColor.White; // TODO: theme
+            BackgroundColor = Theme.PrimaryBackgroundColor; // UIColor.Black; // UIColor.White; // TODO: theme
 
             _myHomeLabel.Font = UIFont.PreferredTitle1;
-            _myHomeLabel.TextColor = UIColor.White; // UIColor.Black; // TODO: theme
+            _myHomeLabel.TextColor = Theme.PrimaryTextColor; // UIColor.White; // UIColor.Black; // TODO: theme
 
             SettingsButton.SetBackgroundImage(_settingsIcon, UIControlState.Normal);
 
             _myHomeDescriptionText.Font = UIFont.PreferredSubheadline;
-            _myHomeDescriptionText.BackgroundColor = UIColor.DarkGray; // UIColor.LightGray; // TODO: theme
-            _myHomeDescriptionText.TextColor = UIColor.LightGray; // UIColor.DarkGray; // TODO: theme
+            _myHomeDescriptionText.BackgroundColor = Theme.SecondaryBackgroundColor; // UIColor.DarkGray; // UIColor.LightGray; // TODO: theme
+            _myHomeDescriptionText.TextColor = Theme.SecondaryTextColor; // UIColor.LightGray; // UIColor.DarkGray; // TODO: theme
         }
 
         private void SetHierarchy()

@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Utility\Theme.cs" />
     <Compile Include="ViewControllers\HomeViewController.cs" />
     <Compile Include="ViewControllers\SettingsViewController.cs" />
     <Compile Include="Views\Home\HomeTable\HomeTableCell.cs" />

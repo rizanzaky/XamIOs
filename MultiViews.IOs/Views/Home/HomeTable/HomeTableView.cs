@@ -1,4 +1,5 @@
-﻿using UIKit;
+﻿using Blank.Utility;
+using UIKit;
 
 namespace Blank.Views.Home.HomeTable
 {
@@ -7,7 +8,7 @@ namespace Blank.Views.Home.HomeTable
         public HomeTableView()
         {
             RegisterClassForCellReuse(typeof(HomeTableCell), HomeTableCell.CellId);
-            BackgroundColor = UIColor.Black; // UIColor.White; // TODO: theme
+            BackgroundColor = Theme.PrimaryBackgroundColor; // UIColor.Black; // UIColor.White; // TODO: theme
         }
     }
 }
