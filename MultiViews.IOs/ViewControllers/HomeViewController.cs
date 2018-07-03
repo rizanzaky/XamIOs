@@ -21,15 +21,16 @@ namespace Blank.ViewControllers
             View = _homeView;
         }
 
-        public override void ViewWillAppear(bool animated)
-        {
-            _homeView.UpdateElements();
-        }
-
         public override void ViewDidLoad()
         {
             _homeView.HomeTableView.Source = _homeTableSource;
             _homeView.SettingsButton.TouchUpInside += OnHomeSettingsTapped;
+            SettingsViewController.ThemeChanged += OnThemeChanged;
+        }
+
+        private void OnThemeChanged(object sender, EventArgs e)
+        {
+            _homeView.UpdateElements();
         }
 
         private void OnHomeSettingsTapped(object sender, EventArgs e)

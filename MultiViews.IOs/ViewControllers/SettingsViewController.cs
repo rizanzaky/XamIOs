@@ -27,15 +27,16 @@ namespace Blank.ViewControllers
 
         private void OnThemeChanged(object sender, ThemeEventArgs args)
         {
-            Console.WriteLine($"Value: {args.ThemeType}");
             Theme.UpdateTheme(args.ThemeType);
+            ThemeChanged?.Invoke(this, EventArgs.Empty);
             _settingsView.UpdateElements();
-            //Theme.Update(ref Theme.PrimaryBackgroundColor);
         }
 
         private void OnBackButtonTouched(object sender, EventArgs e)
         {
             DismissViewController(true, null);
         }
+
+        public static EventHandler ThemeChanged;
     }
 }
