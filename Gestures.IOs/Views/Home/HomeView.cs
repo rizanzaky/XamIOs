@@ -1,4 +1,5 @@
-﻿using UIKit;
+﻿using System;
+using UIKit;
 
 namespace Blank.Views.Home
 {
@@ -57,6 +58,16 @@ namespace Blank.Views.Home
         private void BindData()
         {
 
+        }
+
+        public void UpdateView(nfloat updateBy)
+        {
+            if (_topConstraint.Constant + updateBy < -80f || _topConstraint.Constant + updateBy > 0f)
+            {
+                return;
+            }
+
+            _topConstraint.Constant += updateBy;
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
 using Blank.Views.Home;
+using CoreGraphics;
 using UIKit;
 
 namespace Blank.ViewControllers
 {
     public class HomeViewController : UIViewController
     {
-        private HomeView _homeView;
+        private readonly HomeView _homeView;
 
         public HomeViewController()
         {
@@ -30,9 +31,12 @@ namespace Blank.ViewControllers
             _homeView.AddGestureRecognizer(gesture);
         }
 
-        private void HandleDrag(UIPanGestureRecognizer gesture)
+        private void HandleDrag(UIPanGestureRecognizer recognizer)
         {
-            Console.WriteLine("Hello World");
+            var offset = recognizer.TranslationInView(_homeView);
+            _homeView.UpdateView(offset.Y);
+            Console.WriteLine($"Hello World {offset.Y}");
+            recognizer.SetTranslation(CGPoint.Empty, _homeView);
         }
     }
 }
